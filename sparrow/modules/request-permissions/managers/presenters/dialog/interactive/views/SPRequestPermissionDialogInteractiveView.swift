@@ -49,13 +49,13 @@ public class SPRequestPermissionDialogInteractiveView: UIView {
         self.headerView.titleLabel.textColor = UIColor.white
         self.headerView.titleLabel.font = UIFont.init(
             name: SPRequestPermissionData.fonts.base() + "-Medium",
-            size: 24
+            size: 26
         )
         self.headerView.titleLabel.minimumScaleFactor = 0.5
         self.headerView.subtitleLabel.textColor = UIColor.white
         self.headerView.subtitleLabel.font = UIFont.init(
             name: SPRequestPermissionData.fonts.base() + "-Medium",
-            size: 12
+            size: 13
         )
         self.headerView.subtitleLabel.minimumScaleFactor = 0.5
         self.headerView.subtitleLabel.numberOfLines = 0
@@ -72,7 +72,7 @@ public class SPRequestPermissionDialogInteractiveView: UIView {
         self.bottomLabel.textColor = UIColor.black.withAlphaComponent(0.4)
         self.bottomLabel.font = UIFont.init(
             name: SPRequestPermissionData.fonts.base() + "-Regular",
-            size: 10
+            size: 11
         )
         self.bottomLabel.numberOfLines = 0
         self.bottomLabel.minimumScaleFactor = 0.7

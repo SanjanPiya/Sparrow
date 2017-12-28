@@ -40,12 +40,35 @@ public class SPRequestPermissionDialogInteractiveViewController: SPDialogSwipeCo
         
         self.bottomView.font = UIFont.init(
             name: SPRequestPermissionData.fonts.base() + "-Regular",
-            size: 12
+            size: 14
         )
         self.bottomView.textColor = UIColor.white
-        self.bottomView.setShadowOffsetForLetters(heightOffset: 1, opacity: 0.4)
+        self.bottomView.setShadowOffsetForLetters(blurRadius: 3.0, heightOffset: 1, opacity: 1.0)
         self.bottomView.setCenteringAlignment()
         self.bottomView.numberOfLines = 0
+        
+        let swipeGesture1 = UISwipeGestureRecognizer.init(target: self, action: #selector(self.hideDialog))
+        swipeGesture1.direction = .down
+        self.bottomView.addGestureRecognizer(swipeGesture1)
+        let swipeGesture2 = UISwipeGestureRecognizer.init(target: self, action: #selector(self.hideDialog))
+        swipeGesture2.direction = .up
+        self.bottomView.addGestureRecognizer(swipeGesture2)
+        let swipeGesture3 = UISwipeGestureRecognizer.init(target: self, action: #selector(self.hideDialog))
+        swipeGesture3.direction = .left
+        self.bottomView.addGestureRecognizer(swipeGesture3)
+        let swipeGesture4 = UISwipeGestureRecognizer.init(target: self, action: #selector(self.hideDialog))
+        swipeGesture4.direction = .right
+        self.bottomView.addGestureRecognizer(swipeGesture4)
+        
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(self.hideDialog))
+        tapGesture.numberOfTapsRequired = 1
+        self.bottomView.addGestureRecognizer(tapGesture)
+        
+        self.bottomView.isUserInteractionEnabled = true
+    }
+    
+    @objc func hideDialog() {
+        self.hide(withDialog: true)
     }
     
     required public init?(coder aDecoder: NSCoder) {
